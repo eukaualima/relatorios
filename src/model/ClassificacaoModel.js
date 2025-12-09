@@ -2,8 +2,8 @@ export class ClassificacaoModel
 {
     constructor (id, nome)
     {
-        this.id = id ? id : null;
-        this.nome = nome;
+        this.setId(id);
+        this.setNome(nome);
     }
 
     // Getters e setters
@@ -20,5 +20,10 @@ export class ClassificacaoModel
     getId ()
     {
         return this.id;
+    }
+
+    setId (id)
+    {
+        this.id = id ? this.id : null;
     }
 }
