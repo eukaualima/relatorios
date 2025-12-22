@@ -94,12 +94,12 @@ export class GrupoDAO
         try 
         {
             const sql = 'SELECT * FROM grupo';
-            const [rows] = await pool.query(sql);
+            const [linhas] = await pool.query(sql);
 
-            return rows.map(row => new GrupoModel(
-                row.empresa, 
-                row.numero, 
-                row.nome
+            return linhas.map(linha => new GrupoModel(
+                linha.empresa, 
+                linha.numero, 
+                linha.nome
             ));
         } 
         catch (error) 
@@ -121,12 +121,12 @@ export class GrupoDAO
         try
         {
             const sql = 'SELECT * FROM grupo WHERE empresa = ? ORDER BY numero ASC';
-            const [rows] = await pool.query(sql, [idEmpresa]);
+            const [linhas] = await pool.query(sql, [idEmpresa]);
 
-            return rows.map(row => new GrupoModel(
-                row.empresa, 
-                row.numero, 
-                row.nome
+            return linhas.map(linha => new GrupoModel(
+                linha.empresa, 
+                linha.numero, 
+                linha.nome
             ));
         } 
         catch (error) 
@@ -149,13 +149,13 @@ export class GrupoDAO
         try 
         {
             const sql = 'SELECT * FROM grupo WHERE empresa = ? AND numero = ?';
-            const [rows] = await pool.query(sql, [idEmpresa, numeroGrupo]);
+            const [linhas] = await pool.query(sql, [idEmpresa, numeroGrupo]);
 
-            if (rows.length === 0) return null;
+            if (linhas.length === 0) return null;
 
-            const row = rows[0];
+            const linha = linhas[0];
 
-            return new GrupoModel(row.empresa, row.numero, row.nome);
+            return new GrupoModel(linha.empresa, linha.numero, linha.nome);
             
         } 
         catch (error) 

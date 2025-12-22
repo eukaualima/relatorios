@@ -118,14 +118,14 @@ export class UsuarioDAO
             const sql = 'SELECT * FROM usuarios ORDER BY nome ASC';
             const [linhas] = await pool.query(sql);
 
-            return linhas.map(row => new UsuarioModel(
-                row.cpf,
-                row.nome,
-                row.email,
-                row.senha,
-                row.telefone,
-                row.admin,
-                row.empresa
+            return linhas.map(linha => new UsuarioModel(
+                linha.cpf,
+                linha.nome,
+                linha.email,
+                linha.senha,
+                linha.telefone,
+                linha.admin,
+                linha.empresa
             ));
         } 
         catch (error) 
@@ -179,19 +179,19 @@ export class UsuarioDAO
         {
             const sql = 'SELECT * FROM usuarios WHERE email = ?';
 
-            const [rows] = await pool.query(sql, [email]);
+            const [linhas] = await pool.query(sql, [email]);
 
-            if (rows.length === 0) return null;
+            if (linhas.length === 0) return null;
 
-            const row = rows[0];
+            const linha = linhas[0];
             return new UsuarioModel(
-                row.cpf, row.nome, row.email, row.senha, row.telefone, row.admin, row.empresa
+                linha.cpf, linha.nome, linha.email, linha.senha, linha.telefone, linha.admin, linha.empresa
             );
         } 
         catch (error) 
         {
             console.error("Erro ao buscar usuário por Email:", error);
-            
+
             throw error;
         }
     }

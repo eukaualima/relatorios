@@ -98,11 +98,11 @@ export class EmpresaDAO
 
             const [linhas] = await pool.query(sql);
 
-            return linhas.map(row => new EmpresaModel(
-                row.id, 
-                row.nome, 
-                row.cidade, 
-                row.estado
+            return linhas.map(linha => new EmpresaModel(
+                linha.id, 
+                linha.nome, 
+                linha.cidade, 
+                linha.estado
             ));
 
         } 
