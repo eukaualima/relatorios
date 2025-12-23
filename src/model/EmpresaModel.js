@@ -1,13 +1,24 @@
 export class EmpresaModel 
 {
-    constructor (nome, cidade, estado)
+    constructor (id, nome, cidade, estado)
     {
+        this.setId(id);
         this.setNome(nome);
         this.setCidade(cidade);
         this.setEstado(estado);
     }
 
     // Getters e setters
+    getId ()
+    {
+        return this.id;
+    }
+
+    setId (id)
+    {
+        this.id = id ? id : null;
+    }
+
     getNome ()
     {
         return this.nome;
