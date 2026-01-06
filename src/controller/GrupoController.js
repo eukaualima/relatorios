@@ -1,5 +1,5 @@
-import { GrupoModel } from "../model/GrupoModel";
-import { GrupoDAO } from "../database/DAO/GrupoDAO";
+import { GrupoModel } from "../model/GrupoModel.js";
+import { GrupoDAO } from "../database/DAO/GrupoDAO.js";
 
 export class GrupoController
 {
@@ -12,7 +12,7 @@ export class GrupoController
     async listar (req, res)
     {
         const dao = new GrupoDAO();
-
+ 
         try
         {
             const lista = await dao.buscarTodos();

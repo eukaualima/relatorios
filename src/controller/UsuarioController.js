@@ -135,7 +135,7 @@ export class UsuarioController
         const dao = new UsuarioDAO();
 
         try
-        {
+        { 
             const { cpf, nome, email, telefone, admin, empresa } = req.body;
 
             // Regra de Negócio: A senha inicial é gerada automaticamente baseada no CPF.

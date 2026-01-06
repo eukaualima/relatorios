@@ -21,7 +21,7 @@ export class EmpresaController
             res.status(200).json(lista);
         }
         catch (erro)
-        {
+        { 
             console.log(erro);
 
             res.status(500).json({ mensagem: "Erro ao listar empresas.", detalhe: erro.message });

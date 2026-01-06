@@ -35,7 +35,7 @@ export class ClassificacaoController
     async buscarPorId (req, res)
     {
         const dao = new ClassificacaoDAO();
-        
+         
         try
         {
             const id = req.params.id;

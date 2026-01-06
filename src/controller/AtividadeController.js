@@ -183,7 +183,7 @@ export class AtividadeController
     async apagar (req, res)
     {
         const dao = new AtividadeDAO();
-
+        
         try
         {
             const id = req.params.id;
