@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= acao %> Atividade</title>
+</head>
+<body>
+    <h1><%= acao %> Atividade</h1>
+
+    <a href="/atividades">Voltar para a lista</a>
+
+    <% if (erro) { %>
+        <p style="color: red;"><%= erro %></p>
+    <% } %>
+
+    <form action="<%= rota %>" method="POST">
+        <label>Mês:</label>
+        <br>
+        <select name="mes" required>
+            <option value="">Selecione...</option>
+            <% ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'].forEach(m => { %>
+                <option value="<%= m %>" <%= atividade && atividade.mes === m ? 'selected' : '' %>><%= m %></option>
+            <% }); %>
+        </select>
+        <br>
+
+        <label>Ano:</label>
+        <br>
+        <input type="number" name="ano" value="<%= atividade ? atividade.ano : 2026 %>" required>
+        <br>
+
+        <label>Classificação:</label>
+        <br>
+        <select name="classificacao" required>
+            <% classificacoes.forEach(c => { %>
+                <option value="<% c.id %>" <%= atividade && atividade.classificacao === c.id ? 'selected' : '' %>><%= c.nome %></option>
+            <% }) %>
+        </select>
+        <br>
+
+        <label>Grupo:</label>
+        <br>
+        <select name="grupoComposto" required>
+            <option value="">Selecione...</option>
+            <% grupos.forEach(g => { %>
+                <option value="<%= g.empresa %>|<%= g.numero %>" 
+                    <%= atividade && atividade.grupoEmpresa == g.empresa && atividade.grupoNumero == g.numero ? 'selected' : '' %>>
+                    <%= g.nome %>
+                </option>
+            <% }) %>
+        </select>
+        <br><br>
+
+        <label>Qtd. Estudos:</label>
+        <input type="number" name="qtdestudos" value="<%= atividade ? atividade.qtdestudos : '' %>">
+
+        <label>
+            <input type="checkbox" name="participou" <%= atividade && atividade.participou === 1 ? 'checked' : '' %>>
+            Participou efetivamente?
+        </label>
+
+        <label>Observações:</label>
+        <br>
+        <textarea name="observacao" rows="3" cols="30"><%= atividade ? atividade.observacao : '' %></textarea>
+
+        <button type="submit">Salvar dados</button>
+    </form>
+</body>
+</html>

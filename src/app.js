@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { router } from './routes.js';
 import { fileURLToPath } from 'url';
+import path from 'path';
 
 // Configuração das variáveis de ambiente
 dotenv.config();

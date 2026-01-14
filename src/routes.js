@@ -47,7 +47,12 @@ router.put('/usuarios/:cpf', (req, res) => usuarioController.atualizar(req, res)
 router.delete('/usuarios/:cpf', (req, res) => usuarioController.apagar(req, res));
 
 // ROTAS DE ATIVIDADE
-router.get('/atividades', (req, res) => atividadeController.listar(req, res));
+// # Página de exibição do formulário para criar uma nova atividade
+router.get('/atividades/novo', (req, res) => atividadeController.formCriar(req, res));
+
+// # Página de exibição da lista de atividades
+router.get('/atividades', (req, res) => atividadeController.listar(req, res)); 
+
 router.get('/atividades/:id', (req, res) => atividadeController.buscarPorId(req, res));
 router.post('/atividades', (req, res) => atividadeController.criar(req, res));
 router.put('/atividades/:id', (req, res) => atividadeController.atualizar(req, res));
