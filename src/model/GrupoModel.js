@@ -1,6 +1,6 @@
 export class GrupoModel
 {
-    construtor (empresa, numero, nome)
+    constructor (empresa, numero, nome)
     {
         this.setEmpresa(empresa);
         this.setNumero(numero);
