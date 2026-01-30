@@ -24,6 +24,6 @@ export class ClassificacaoModel
 
     setId (id)
     {
-        this.id = id ? this.id : null;
+        this.id = id ? id : null;
     }
 }
